@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
     "declaration": true,
@@ -10,16 +10,16 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noEmitOnError": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "traceResolution": false,
-    "outDir": "./lib/js"
+    "outDir": "./lib",
+    "rootDir": "./src"
   },
   "include": [
-    "./src/ts/**/*.ts",
-    "./test/**/*.ts"
+    "./src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

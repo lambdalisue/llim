@@ -5,19 +5,29 @@
   "description": "llim",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test",
-    "build": "gulp build"
+    "dep": "npm install",
+    "lint:ts": "tslint $(git ls-files | grep -E \".ts$\")",
+    "build:ts": "tsc --pretty",
+    "test:ts": "npm run build:ts && NODE_PATH=./lib nyc --reporter=lcov --reporter=text ava --verbose",
+    "build": "npm run build:ts",
+    "lint": "npm run lint:ts",
+    "test": "npm run test:ts",
+    "clean": "rm -rf ./coverage ./lib ./node_modules"
   },
   "author": "lambdalisue",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambdalisue/llim.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lambdalisue/llim/issues"
+  },
+  "homepage": "https://github.com/lambdalisue/llim/#readme",
   "devDependencies": {
     "ava": "^0.15.2",
-    "gulp-ava": "^0.12.1",
-    "gulp-help": "^1.6.1",
-    "gulp-less": "^3.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-typescript": "^2.13.6",
-    "less": "^2.7.1",
+    "nyc": "^7.0.0",
+    "tslint": "^3.13.0",
     "typescript": "^2.0.0"
   }
 }
